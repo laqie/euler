@@ -1,0 +1,1 @@
+print reduce(lambda result, (index, name): result + index * reduce(lambda s, l: s + ord(l) - ord('A') + 1, name, 0), enumerate(sorted(open('names.txt').read().replace('"', '').split(',')), 1), 0)
