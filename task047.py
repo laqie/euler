@@ -1,16 +1,19 @@
-from factors import factor
 from time import time
 
 s = time()
-n, l, k = 2, 4, 0
-while True:
-    if len(set(factor(n))) == l:
-        k += 1
-    else:
-        k = 0
-    if k == l:
-        print n - k + 1
+
+MAX = 500000
+sieve = [0] * MAX
+
+for i in xrange(2, MAX):
+    if sieve[i] == 0:
+        for j in xrange(2 * i, MAX, i):
+            sieve[j] += 1
+    if sieve[i + 3] == 4 \
+        and sieve[i + 2] == 4 \
+        and sieve[i + 1] == 4 \
+        and sieve[i] == 4:
+        print i
         break
-    n += 1
 
 print 'Elapsed time:', time() - s
