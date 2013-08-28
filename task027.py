@@ -14,8 +14,7 @@ def get_length(a, b):
         n += 1
     return n
 
-m = 0
-A,B = 0, 0
+A, B, m = 0, 0, 0
 for a in xrange(-999, 1000, 2):
     for b in xrange(abs(a), 1000):
         if not is_prime(b):
